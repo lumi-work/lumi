@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
-import OnboardingLogo from "../../public/onboarding_logo.svg";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
-import { motion } from "framer-motion";
+import OnboardingLogo from "../../../public/onboarding_logo.svg";
 
 const Onboarding = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -32,7 +31,7 @@ const Onboarding = () => {
     },
     {
       title: "Ready to Go!",
-      content: "Lumi is all set! Click 'Start' to begin your journey and make the most of our app.",
+      content: "Lumi is all set! Click 'Finish' to begin your journey and make the most of our app.",
       image: OnboardingLogo,
       color: "from-sky-500 via-blue-500 to-purple-500",
     },
@@ -72,7 +71,7 @@ const Onboarding = () => {
           </motion.div>
         </div>
         <motion.div key={currentPage} initial={{ translateX: -30 }} animate={{ translateX: 0 }}>
-          <h2 className="text-xl font-semibold mb-2 mt-12">{pages[currentPage].title}</h2>
+          <h2 className="text-xl font-medium mb-2 mt-12">{pages[currentPage].title}</h2>
         </motion.div>
         <p className="mb-3 text-gray-600 text-[15px]">{pages[currentPage].content}</p>
 

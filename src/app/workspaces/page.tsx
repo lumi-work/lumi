@@ -1,22 +1,10 @@
-import { redirect } from "next/navigation";
-
-import { createClient } from "@/utils/server";
-import Onboarding from "@/components/Onboarding";
+import Onboarding from "@/components/ui/Onboarding";
 
 export default async function PrivatePage() {
-  const supabase = createClient();
-
-  const { data, error } = await supabase.auth.getUser();
-  if (error || !data?.user) {
-    redirect("/sign-in");
-  }
-
   return (
-    <>
-      <div>
-        Hello {data.user.email}
-        <Onboarding />
-      </div>
-    </>
+    <div className="w-full h-screen py-12 flex items-center justify-center">
+      <Onboarding />
+      <div>main</div>
+    </div>
   );
 }
