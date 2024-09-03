@@ -49,6 +49,7 @@ function SidebarItems() {
       >
         <div className="flex items-center gap-2">
           <FaRegBell className="text-gray-500 text-lg ml-2" />
+          <span className="absolute bg-red-500 w-4 h-4 text-[13px] rounded-full flex items-center ml-4 mb-2 justify-center text-white">3</span>
           <p className="text-[15px]">Activity</p>
         </div>
       </div>
