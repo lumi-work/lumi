@@ -18,7 +18,7 @@ export default async function WorkspacesLayout({
   }
 
   return (
-    <div className="flex bg-gray-100">
+    <div className="flex bg-gray-100 overflow-hidden">
       <div className="basis-[25%] max-w-[25%]">
         <Sidebar user={data?.user.email} />
       </div>
