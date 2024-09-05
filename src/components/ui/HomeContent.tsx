@@ -2,9 +2,6 @@ import React from "react";
 
 import CompleteProfile from "./CompleteProfile";
 import RecentlyVisited from "./RecentlyVisited";
-
-import { RiArrowDownSLine } from "react-icons/ri";
-import { RiArrowRightSLine } from "react-icons/ri";
 import MyWorkspaces from "./MyWorkspaces";
 
 function HomeContent() {
@@ -23,28 +20,11 @@ function HomeContent() {
         <CompleteProfile />
 
         <div className="mt-8">
-          <div>
-            <h2 className="text-md font-medium flex items-center gap-1">
-              {" "}
-              <RiArrowDownSLine className="text-2xl" />
-              Recently Visited
-            </h2>
-          </div>
-          <div className="pt-4 flex items-center gap-4">
-            <RecentlyVisited />
-          </div>
+          <RecentlyVisited />
         </div>
 
         <div className="mt-8">
-          <div>
-            <h2 className="text-md font-medium flex items-center gap-1">
-              <RiArrowDownSLine className="text-2xl" />
-              My workspaces
-            </h2>
-          </div>
-          <div className="pt-4 flex items-center gap-4">
-            <MyWorkspaces />
-          </div>
+          <MyWorkspaces />
         </div>
       </div>
     </div>
