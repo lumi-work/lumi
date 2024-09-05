@@ -1,6 +1,9 @@
 "use client";
 
-import Activity from "@/components/ui/Activity";
+import ActivityContent from "@/components/ui/ActivityContent";
+import HomeContent from "@/components/ui/HomeContent";
+import ScheduleContent from "@/components/ui/ScheduleContent";
+
 import { useSearchParams } from "next/navigation";
 import React from "react";
 
@@ -9,9 +12,9 @@ function Tabs() {
   const params = searchParams.get("page");
   return (
     <div className="w-full h-full pr-12">
-      {params?.toString() === "home" ? <div>home content</div> : null}
-      {params?.toString() === "activity" ? <Activity /> : null}
-      {params?.toString() === "schedule" ? <div>schedule content</div> : null}
+      {params?.toString() === "home" ? <HomeContent /> : null}
+      {params?.toString() === "activity" ? <ActivityContent /> : null}
+      {params?.toString() === "schedule" ? <ScheduleContent /> : null}
     </div>
   );
 }

@@ -26,7 +26,7 @@ function ActivityBox() {
   ];
 
   return (
-    <div className="flex w-full h-full mt-6 flex-col">
+    <div className="flex w-full h-full mt-4 flex-col">
       {activityDemo && activityDemo.length > 0
         ? activityDemo.map((item, index) => (
             <div key={index} className="w-full flex flex-col">

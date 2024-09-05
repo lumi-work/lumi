@@ -1,6 +1,6 @@
 import React from "react";
-import { Kbd } from "@nextui-org/kbd";
-import { AiOutlinePlusSquare } from "react-icons/ai";
+
+import CreateWorkspace from "@/components/ui/CreateWorkspace";
 
 function SidebarProjects() {
   const projectsDemo = [
@@ -36,14 +36,7 @@ function SidebarProjects() {
               </div>
             ))
           : null}
-        <div className="flex items-center justify-between mt-3 w-full">
-          <div className="flex items-center gap-2">
-            {/* <CiSquarePlus className="text-[22px] text-gray-500" /> */}
-            <AiOutlinePlusSquare className="text-gray-500" />
-            <p className="text-[14px] text-gray-500">Add New Project</p>
-          </div>
-          <Kbd keys={["command"]}>K</Kbd>
-        </div>
+        <CreateWorkspace />
       </div>
     </div>
   );
