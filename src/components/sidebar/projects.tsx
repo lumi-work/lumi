@@ -1,23 +1,18 @@
 import React from "react";
 
 import CreateWorkspace from "@/components/ui/CreateWorkspace";
+import { MdOutlineFolderCopy } from "react-icons/md";
 
 function SidebarProjects() {
   const projectsDemo = [
     {
       title: "Personal",
-      color: "bg-green-200",
-      border: "border-green-600",
     },
     {
       title: "Business",
-      color: "bg-yellow-200",
-      border: "border-yellow-600",
     },
     {
       title: "Travel",
-      color: "bg-pink-200",
-      border: "border-pink-600",
     },
   ];
 
@@ -31,8 +26,10 @@ function SidebarProjects() {
         {projectsDemo && projectsDemo.length > 0
           ? projectsDemo.map((item, index) => (
               <div key={index} className="flex items-center gap-3">
-                <div className={`w-4 h-4 rounded-md border ${item.border} ${item.color}`}></div>
-                <p className="text-[16px]">{item.title}</p>
+                <p className="text-[15px] text-gray-700 flex items-center gap-2 hover:bg-gray-100 py-1 w-full rounded-lg hover:cursor-pointer">
+                  <MdOutlineFolderCopy className="text-lg ml-2" />
+                  {item.title}
+                </p>
               </div>
             ))
           : null}

@@ -13,7 +13,7 @@ const Onboarding = () => {
   const pages = [
     {
       title: "Welcome to Lumi!",
-      content: "You're about to dive into Lumi, a simple and efficient to-do and board system. Let's get started!",
+      content: "You're about to dive into Lumi, a simple and efficient kanban board system. Let's get started!",
       image: OnboardingLogo,
       color: "from-indigo-500 via-purple-500 to-pink-500",
     },

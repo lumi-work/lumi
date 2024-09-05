@@ -2,9 +2,6 @@ import React from "react";
 
 import CompleteProfile from "./CompleteProfile";
 import RecentlyVisited from "./RecentlyVisited";
-
-import { RiArrowDownSLine } from "react-icons/ri";
-import { RiArrowRightSLine } from "react-icons/ri";
 import MyWorkspaces from "./MyWorkspaces";
 
 function HomeContent() {

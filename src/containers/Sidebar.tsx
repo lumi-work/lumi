@@ -5,9 +5,9 @@ import Input from "@/components/common/Input";
 import UserProfile from "@/components/ui/UserProfile";
 import SidebarItems from "@/components/sidebar/items";
 
-import { IoMdSettings } from "react-icons/io";
 import LumiLogo from "../../public/logo.svg";
 import SidebarProjects from "@/components/sidebar/projects";
+import Settings from "@/components/ui/Settings";
 
 function Sidebar({ user }: any) {
   const index = user.indexOf("@");
@@ -35,7 +35,7 @@ function Sidebar({ user }: any) {
         <div className="w-full h-full flex items-end p-4">
           <div className="h-[4rem] flex items-center justify-between w-full px-4 pt-3 border-t border-gray-200">
             <UserProfile username={username} useremail={user} />
-            <IoMdSettings className="text-[18px] text-gray-600" />
+            <Settings username={username} useremail={user} />
           </div>
         </div>
       </div>
