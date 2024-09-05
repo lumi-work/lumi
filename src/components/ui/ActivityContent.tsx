@@ -1,7 +1,7 @@
 import React from "react";
 import ActivityBox from "./ActivityBox";
 
-function Activity() {
+function ActivityContent() {
   return (
     <div className="flex h-full w-full bg-white rounded-xl">
       <div className="flex flex-col mx-8 mt-8 w-full">
@@ -17,4 +17,4 @@ function Activity() {
   );
 }
 
-export default Activity;
+export default ActivityContent;

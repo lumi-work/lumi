@@ -38,7 +38,7 @@ function SidebarItems() {
       >
         <div className="flex items-center gap-2">
           <LuHome className="text-gray-500 text-lg ml-2" />
-          <p className="text-[15px]">Home</p>
+          <p className="text-[15px] text-gray-700">Home</p>
         </div>
       </div>
       <div
@@ -50,7 +50,7 @@ function SidebarItems() {
         <div className="flex items-center gap-2">
           <FaRegBell className="text-gray-500 text-lg ml-2" />
           <span className="absolute bg-red-500 w-4 h-4 text-[13px] rounded-full flex items-center ml-4 mb-2 justify-center text-white">3</span>
-          <p className="text-[15px]">Activity</p>
+          <p className="text-[15px] text-gray-700">Activity</p>
         </div>
       </div>
       <div
@@ -61,7 +61,7 @@ function SidebarItems() {
       >
         <div className="flex items-center gap-2">
           <LuBookMinus className="text-gray-500 text-lg ml-2" />
-          <p className="text-[15px]">Schedule</p>
+          <p className="text-[15px] text-gray-700">Schedule</p>
         </div>
       </div>
     </div>
