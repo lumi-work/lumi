@@ -9,6 +9,8 @@ import LumiLogo from "../../public/logo.svg";
 import SidebarProjects from "@/components/sidebar/projects";
 import Settings from "@/components/ui/Settings";
 
+import { BsStars } from "react-icons/bs";
+
 function Sidebar({ user }: any) {
   const index = user.indexOf("@");
   const username = user.slice(0, index);
@@ -32,7 +34,12 @@ function Sidebar({ user }: any) {
             </div>
           </div>
         </div>
-        <div className="w-full h-full flex items-end p-4">
+        <div className="w-full h-full flex items-end px-7">
+          <div className="gap-2 flex items-center justify-start text-blue-500 py-1.5 w-full transition-all hover:bg-gray-100 rounded-lg cursor-pointer pl-2">
+            <BsStars /> See Plans
+          </div>
+        </div>
+        <div className="w-full flex items-end p-4">
           <div className="h-[4rem] flex items-center justify-between w-full px-4 pt-3 border-t border-gray-200">
             <UserProfile username={username} useremail={user} />
             <Settings username={username} useremail={user} />

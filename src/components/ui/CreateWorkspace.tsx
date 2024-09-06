@@ -45,7 +45,7 @@ function CreateWorkspace() {
             <ModalBody>
               <div className="w-full">
                 <label>Workspace name</label>
-                <input type="text" className="mt-2 w-full border border-gray-300 bg-gray-100 shadow rounded-md px-3 py-1 focus:outline-[#4B4EE7]" placeholder="*" />
+                <input type="text" className="mt-2 w-full border border-gray-300 bg-gray-100 shadow rounded-md px-3 py-1 focus:outline-[#4B4EE7]" />
               </div>
               <div className="pt-3">
                 <Checkboxs />
