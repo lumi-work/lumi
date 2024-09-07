@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-import OnboardingLogo from "../../../public/onboarding_logo.svg";
+import OnboardingLogo from "../../../../public/onboarding_logo.svg";
 
 const Onboarding = () => {
   const [currentPage, setCurrentPage] = useState(0);

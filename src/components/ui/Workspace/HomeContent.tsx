@@ -1,8 +1,8 @@
 import React from "react";
 
-import CompleteProfile from "./CompleteProfile";
-import RecentlyVisited from "./RecentlyVisited";
-import MyWorkspaces from "./MyWorkspaces";
+import CompleteProfile from "@/components/ui/Profile/CompleteProfile";
+import RecentlyVisited from "@/components/ui/Workspace/RecentlyVisited";
+import MyWorkspaces from "@/components/ui/Workspace/MyWorkspaces";
 
 function HomeContent() {
   return (

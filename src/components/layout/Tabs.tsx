@@ -1,8 +1,8 @@
 "use client";
 
-import ActivityContent from "@/components/ui/ActivityContent";
-import HomeContent from "@/components/ui/HomeContent";
-import ScheduleContent from "@/components/ui/ScheduleContent";
+import ActivityContent from "@/components/ui/Activity/ActivityContent";
+import HomeContent from "@/components/ui/Workspace/HomeContent";
+import ScheduleContent from "@/components/ui/Schedule/ScheduleContent";
 
 import { useSearchParams } from "next/navigation";
 import React from "react";

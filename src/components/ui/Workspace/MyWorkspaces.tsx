@@ -7,18 +7,14 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { MdOutlineFolderCopy } from "react-icons/md";
 
-import workspacesPlaceHolder from "../../../public/workspaces_placeholder.png";
-import Tooltips from "../common/Tooltip";
+import workspacesPlaceHolder from "../../../../public/workspaces_placeholder.png";
+import Tooltips from "@/components/common/Tooltip";
 
-function RecentlyVisited() {
+function MyWorkspaces() {
   const workspacesDemo = [
     {
       id: 1,
       name: "Devlances",
-    },
-    {
-      id: 2,
-      name: "Duckie Works",
     },
   ];
 
@@ -38,8 +34,8 @@ function RecentlyVisited() {
           ) : (
             <RiArrowRightSLine className="text-2xl hover:cursor-pointer" onClick={handleClose} />
           )}
-          Recently Visited
-          <Tooltips content={"There are only 4 listed in the Recently Visited section."} />
+          My Workspaces
+          <Tooltips content={"There are only 4 listed in the My Workspaces section."} />
         </h2>
       </div>
       <div className="flex gap-6 items-center mt-4">
@@ -66,4 +62,4 @@ function RecentlyVisited() {
   );
 }
 
-export default RecentlyVisited;
+export default MyWorkspaces;

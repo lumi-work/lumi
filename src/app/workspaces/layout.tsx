@@ -1,4 +1,4 @@
-import Sidebar from "@/containers/Sidebar";
+import Sidebar from "@/components/layout/Sidebar";
 import "@/styles/globals.css";
 
 import { createClient } from "@/utils/server";

@@ -1,5 +1,5 @@
-import Onboarding from "@/components/ui/Onboarding";
-import Tabs from "@/containers/Tabs";
+import Onboarding from "@/components/ui/Onboarding/Onboarding";
+import Tabs from "@/components/layout/Tabs";
 
 export default async function PrivatePage() {
   return (

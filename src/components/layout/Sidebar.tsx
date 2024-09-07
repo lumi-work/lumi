@@ -2,12 +2,12 @@ import Image from "next/image";
 import React from "react";
 
 import Input from "@/components/common/Input";
-import UserProfile from "@/components/ui/UserProfile";
-import SidebarItems from "@/components/sidebar/items";
+import UserProfile from "@/components/ui/Profile/UserProfile";
+import SidebarItems from "@/components/sidebar/Items";
 
-import LumiLogo from "../../public/logo.svg";
-import SidebarProjects from "@/components/sidebar/projects";
-import Settings from "@/components/ui/Settings";
+import LumiLogo from "../../../public/logo.svg";
+import SidebarProjects from "@/components/sidebar/Projects";
+import Settings from "@/components/settings/Settings";
 
 import { BsStars } from "react-icons/bs";
 
