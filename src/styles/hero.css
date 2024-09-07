@@ -1,0 +1,9 @@
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    #e0e0e0,
+    #8276ff
+  ); /* Gray to light blue gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
