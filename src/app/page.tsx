@@ -1,9 +1,9 @@
+import Contact from "@/components/landing/Contact";
 import Footer from "@/components/landing/Footer";
-import Futures from "@/components/landing/Futures";
+import Features from "@/components/landing/Features";
+import Grid from "@/components/landing/Grid";
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
-import { Contact, Grid } from "lucide-react";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
             </div>
             <Header />
             <Hero />
-            <Futures />
+            <Features />
             <Grid />
             <Contact />
             <Footer />
