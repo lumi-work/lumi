@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
+
 import usersSlice from './features/usersSlice'
+import workspacesSlice from './features/workspacesSlice'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      count: usersSlice
+      user: usersSlice,
+      workspaces: workspacesSlice
     },
   })
 }
