@@ -4,12 +4,12 @@ import React, { useState, useEffect } from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button } from "@nextui-org/react";
 import { Kbd } from "@nextui-org/kbd";
 import { FiPlus } from "react-icons/fi";
-import Checkboxs from "../common/Checkbox";
+import Checkboxs from "@/components/common/Checkbox";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "@/lib/store";
 import { userData } from "@/lib/features/usersSlice";
 import { createClient } from "@/utils/client";
-import Spin from "../common/Spinner";
+import Spin from "@/components/common/Spinner";
 import { fetchWorkspaces } from "@/lib/features/workspacesSlice";
 
 function CreateWorkspace() {

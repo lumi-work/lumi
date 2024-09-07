@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-import LumiLogo from "../../../public/logo_vanilla.svg";
+import LumiLogo from "../../../../public/logo_vanilla.svg";
 
 function ActivityBox() {
   const activityDemo = [

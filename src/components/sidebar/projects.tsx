@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import CreateWorkspace from "@/components/ui/CreateWorkspace";
+import CreateWorkspace from "@/components/ui/Workspace/CreateWorkspace";
 import { MdOutlineFolderCopy } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkspaces } from "@/lib/features/workspacesSlice";
@@ -31,7 +31,7 @@ function SidebarProjects() {
 
       {error != null ? <div className="text-red-500 text-[15px] pt-4">error</div> : null}
 
-      {state.loading === true || state.data.length === 0 ? (
+      {state.loading === true ? (
         <div className="flex items-center">
           <Skeletons />
         </div>
