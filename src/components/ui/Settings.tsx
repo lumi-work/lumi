@@ -33,7 +33,7 @@ function Settings({ username, useremail }: any) {
       <button onClick={openModal} className="hover:cursor-pointer">
         <IoMdSettings className="text-[19px] text-gray-600 cursor-pointer hover:opacity-80" />
       </button>
-      <Modal isOpen={isOpen} onOpenChange={setIsOpen}>
+      <Modal isOpen={isOpen} onOpenChange={setIsOpen} size="lg">
         <ModalContent>
           <>
             <ModalHeader className="flex flex-col gap-1">Settings</ModalHeader>

@@ -11,9 +11,6 @@ function SidebarProjects() {
     {
       title: "Business",
     },
-    {
-      title: "Travel",
-    },
   ];
 
   return (
