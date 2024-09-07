@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { IoMdSettings } from "react-icons/io";
 import { Modal, ModalContent, ModalHeader, ModalBody } from "@nextui-org/react";
-import ThemeSelection from "./ThemeSelection";
+import ThemeSelection from "@/components/settings/ThemeSelection";
 import { createClient } from "@/utils/client";
 import { useRouter } from "next/navigation";
 

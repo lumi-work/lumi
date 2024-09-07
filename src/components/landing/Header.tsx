@@ -6,10 +6,7 @@ export default function Header() {
   return (
     <header className="flex items-center justify-between p-4 mt-5 relative z-10">
       <nav className="flex items-center space-x-4">
-        <Link
-          href={"/team"}
-          className="bg-gray-100 px-4 py-2 rounded-full text-gray-600 hover:bg-gray-200"
-        >
+        <Link href={"/team"} className="bg-gray-100 px-4 py-2 rounded-full text-gray-600 hover:bg-gray-200">
           Team
         </Link>
       </nav>
@@ -20,9 +17,9 @@ export default function Header() {
       </div>
 
       <div>
-        <button className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full hover:bg-gray-200">
-          Login
-        </button>
+        <Link href={"/sign-in"}>
+          <button className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full hover:bg-gray-200">Sign in</button>
+        </Link>
       </div>
     </header>
   );

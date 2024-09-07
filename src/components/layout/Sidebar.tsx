@@ -8,8 +8,7 @@ import SidebarItems from "@/components/sidebar/Items";
 import LumiLogo from "../../../public/logo.svg";
 import SidebarProjects from "@/components/sidebar/Projects";
 import Settings from "@/components/settings/Settings";
-
-import { BsStars } from "react-icons/bs";
+import Plans from "../ui/Premium/Plans";
 
 function Sidebar({ user }: any) {
   const index = user.indexOf("@");
@@ -34,11 +33,9 @@ function Sidebar({ user }: any) {
             </div>
           </div>
         </div>
-        <div className="w-full h-full flex items-end px-7">
-          <div className="gap-2 flex items-center justify-start text-blue-500 py-1.5 w-full transition-all hover:bg-gray-100 rounded-lg cursor-pointer pl-2">
-            <BsStars /> See Plans
-          </div>
-        </div>
+
+        <Plans />
+
         <div className="w-full flex items-end p-4">
           <div className="h-[4rem] flex items-center justify-between w-full px-4 pt-3 border-t border-gray-200">
             <UserProfile username={username} useremail={user} />
