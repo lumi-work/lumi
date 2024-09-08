@@ -9,11 +9,17 @@ import { fetchWorkspaces } from "@/lib/features/workspacesSlice";
 import { AppDispatch } from "@/lib/store";
 
 import Skeletons from "@/components/common/Skeleton";
+import { useRouter, useSearchParams } from "next/navigation";
+
+import { BsThreeDots } from "react-icons/bs";
 
 function SidebarProjects() {
   const [error, setError] = useState();
-  const state = useSelector((item: any) => item.workspaces);
 
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const state = useSelector((item: any) => item.workspaces);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -21,7 +27,15 @@ function SidebarProjects() {
     setError(state.error);
   }, []);
 
-  console.log(state);
+  function handleWorkspace(id: any) {
+    const params = new URLSearchParams(searchParams);
+    params.delete("page");
+    params.set("projects", id);
+
+    const newUrl = `/workspaces?${params.toString()}`;
+
+    router.replace(newUrl);
+  }
 
   return (
     <div className="mt-4">
@@ -39,10 +53,15 @@ function SidebarProjects() {
       <div className="pt-4">
         {state.data && state.data.length > 0
           ? state.data.map((item: any, index: any) => (
-              <div key={index} className="flex items-center gap-3">
-                <p className="text-[15px] text-gray-700 flex items-center gap-2 hover:bg-gray-100 py-1 w-full rounded-lg hover:cursor-pointer">
-                  <MdOutlineFolderCopy className="text-lg ml-2" />
-                  {item.name}
+              <div key={index} className="flex items-center gap-3" onClick={() => handleWorkspace(item.workspaceId)}>
+                <p className="text-[15px] text-gray-700 flex items-center justify-between gap-2 hover:bg-gray-100 py-1 w-full rounded-lg hover:cursor-pointer group">
+                  <div className="flex items-center gap-2">
+                    <MdOutlineFolderCopy className="text-lg ml-2" />
+                    {item.name}
+                  </div>
+                  <p className="opacity-0 group-hover:opacity-100 mr-4">
+                    <BsThreeDots className="text-gray-500" />
+                  </p>
                 </p>
               </div>
             ))

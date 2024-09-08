@@ -11,11 +11,11 @@ function Tabs() {
   const searchParams = useSearchParams();
   const params = searchParams.get("page");
   return (
-    <div className="w-full h-full pr-12">
+    <>
       {params?.toString() === "home" ? <HomeContent /> : null}
       {params?.toString() === "activity" ? <ActivityContent /> : null}
       {params?.toString() === "schedule" ? <ScheduleContent /> : null}
-    </div>
+    </>
   );
 }
 

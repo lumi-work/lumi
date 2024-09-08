@@ -18,14 +18,15 @@ function SidebarItems() {
     if (!params) {
       router.push("/workspaces?page=home");
     }
-  }, [searchParams, router]);
+  }, []);
 
   function handleRouting(item: any) {
     const params = new URLSearchParams(searchParams);
+    params.delete("projects");
     params.set("page", item);
 
     const newUrl = `/workspaces?${params.toString()}`;
-    router.push(newUrl);
+    router.replace(newUrl);
   }
 
   return (

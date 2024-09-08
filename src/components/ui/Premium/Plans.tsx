@@ -12,8 +12,8 @@ function Plans() {
 
   return (
     <>
-      <div className="w-full h-full flex items-end px-7" onClick={openModal}>
-        <div className="gap-2 flex items-center justify-start text-blue-500 py-1.5 w-full transition-all hover:bg-gray-100 rounded-lg cursor-pointer pl-2">
+      <div className="w-full h-full flex items-end px-7">
+        <div onClick={openModal} className="gap-2 flex items-center justify-start text-blue-500 py-1.5 w-full transition-all hover:bg-gray-100 rounded-lg cursor-pointer pl-2">
           <BsStars /> See Plans
         </div>
       </div>
