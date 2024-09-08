@@ -9,6 +9,7 @@ import LumiLogo from "../../../public/logo.svg";
 import SidebarProjects from "@/components/sidebar/Projects";
 import Settings from "@/components/settings/Settings";
 import Plans from "../ui/Premium/Plans";
+import Link from "next/link";
 
 function Sidebar({ user }: any) {
   const index = user.indexOf("@");
@@ -19,7 +20,9 @@ function Sidebar({ user }: any) {
       <div className="bg-white flex flex-col rounded-xl w-[320px] h-full">
         <div>
           <div className="flex items-center justify-center mt-8">
-            <Image src={LumiLogo} width={90} height={90} alt="lumilogo" />
+            <Link href={"/"}>
+              <Image src={LumiLogo} width={90} height={90} alt="lumilogo" />
+            </Link>
           </div>
           <div className="px-8 pt-8">
             <div>

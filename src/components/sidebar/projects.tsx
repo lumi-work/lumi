@@ -11,7 +11,7 @@ import { AppDispatch } from "@/lib/store";
 import Skeletons from "@/components/common/Skeleton";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { BsThreeDots } from "react-icons/bs";
+import Dropdowns from "@/components/common/Dropdown";
 
 function SidebarProjects() {
   const [error, setError] = useState();
@@ -53,15 +53,17 @@ function SidebarProjects() {
       <div className="pt-4">
         {state.data && state.data.length > 0
           ? state.data.map((item: any, index: any) => (
-              <div key={index} className="flex items-center gap-3" onClick={() => handleWorkspace(item.workspaceId)}>
+              <div
+                key={index}
+                className={`flex items-center gap-3 mb-1.5 ${item.workspaceId.toString() === searchParams.get("projects")?.toString() ? "bg-gray-100 rounded-lg" : ""} `}
+                onClick={() => handleWorkspace(item.workspaceId)}
+              >
                 <p className="text-[15px] text-gray-700 flex items-center justify-between gap-2 hover:bg-gray-100 py-1 w-full rounded-lg hover:cursor-pointer group">
                   <div className="flex items-center gap-2">
                     <MdOutlineFolderCopy className="text-lg ml-2" />
                     {item.name}
                   </div>
-                  <p className="opacity-0 group-hover:opacity-100 mr-4">
-                    <BsThreeDots className="text-gray-500" />
-                  </p>
+                  <Dropdowns />
                 </p>
               </div>
             ))
