@@ -78,10 +78,21 @@ function CreateWorkspace() {
       created_at: date,
     };
 
+    const columns = ["To Do", "In Progress", "Done"];
+
+    const columnRequest = columns.map((item: any) => ({
+      id: Date.now().toString() + Math.floor(Math.random() * 1000).toString(),
+      workspaceId: request.workspaceId,
+      itemId: null,
+      title: item,
+    }));
+
+    const { error: columnError } = await supabase.from("column").insert(columnRequest);
+    console.log(columnError?.message);
     const { error } = await supabase.from("workspaces").insert(request);
 
-    if (error) {
-      console.log("Insert Error", error.message);
+    if (error || columnError) {
+      console.log("Insert Error");
       setError("An error occurred while creating the workspace.");
       setLoading(false);
       return;
