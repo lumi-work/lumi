@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import banner from "../../../public/banner123.png";
 
-function Features() {
+function Futures() {
   return (
     <div className="flex mt-[20rem] justify-center items-center">
       <div className="w-[1100px] h-[800px] bg-[#F3F2F5] rounded-xl shadow-md border-gray-200 border-8 flex flex-col justify-center items-center p-4 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl relative">
@@ -15,4 +15,4 @@ function Features() {
   );
 }
 
-export default Features;
+export default Futures;
