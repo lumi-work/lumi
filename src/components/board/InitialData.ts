@@ -31,7 +31,7 @@ export const fetchInitialData = async () => {
     acc[column.id] = {
       id: column.id,
       title: column.title,
-      itemIds: [column.itemId]
+      itemId: [column.itemId]
     };
     return acc;
   }, {});
