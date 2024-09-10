@@ -101,6 +101,8 @@ const Board: React.FC = () => {
     }
   };
 
+  // loading animation (add spinner)
+
   if (!data) {
     return <div>Loading...</div>;
   }
