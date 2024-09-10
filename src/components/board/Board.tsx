@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
 import { fetchInitialData } from "@/components/board/InitialData";
 import { createClient } from "@/utils/client";
-
+/* Spadey was here */
 interface Item {
   id: string;
   content: string;
