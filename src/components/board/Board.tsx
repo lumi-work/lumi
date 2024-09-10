@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
-import { fetchInitialData } from "@/components/board/InitialData"; // Veriyi asenkron olarak çeken fonksiyon
+import { fetchInitialData } from "@/components/board/InitialData";
+import { createClient } from "@/utils/client";
 
 interface Item {
   id: string;
@@ -10,7 +11,7 @@ interface Item {
 interface Column {
   id: string;
   title: string;
-  itemIds: string[];
+  itemId: string[];
 }
 
 interface Data {
@@ -21,13 +22,12 @@ interface Data {
 
 const Board: React.FC = () => {
   const [data, setData] = useState<Data | null>(null);
+  const supabase = createClient();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const initialData = await fetchInitialData();
-        console.log("Initial Data:", initialData);
-
         if (initialData && initialData.columns && initialData.items && initialData.columnOrder) {
           setData(initialData);
         } else {
@@ -41,7 +41,25 @@ const Board: React.FC = () => {
     fetchData();
   }, []);
 
-  const onDragEnd = (result: DropResult) => {
+  const updateDatabase = async (updatedColumns: { [key: string]: Column }) => {
+    try {
+      for (const columnId in updatedColumns) {
+        const column = updatedColumns[columnId];
+        const { error: columnError } = await supabase
+          .from("column")
+          .update({ itemId: column.itemId.join(",") })
+          .eq("id", column.id);
+
+        if (columnError) throw columnError;
+      }
+
+      console.log("Veritabanı başarıyla güncellendi.");
+    } catch (error) {
+      console.error("Veritabanı güncellenirken hata oluştu:", error);
+    }
+  };
+
+  const onDragEnd = async (result: DropResult) => {
     if (!data) return;
 
     const { source, destination } = result;
@@ -51,33 +69,36 @@ const Board: React.FC = () => {
     if (source.droppableId !== destination.droppableId) {
       const start = data.columns[source.droppableId];
       const finish = data.columns[destination.droppableId];
-      const startItemIds = Array.from(start.itemIds);
-      const finishItemIds = Array.from(finish.itemIds);
+      const startItemId = Array.from(start.itemId);
+      const finishItemId = Array.from(finish.itemId);
 
-      const [movedItemId] = startItemIds.splice(source.index, 1);
-      finishItemIds.splice(destination.index, 0, movedItemId);
+      const [movedItemId] = startItemId.splice(source.index, 1);
+      finishItemId.splice(destination.index, 0, movedItemId);
 
       const updatedColumns = {
         ...data.columns,
-        [source.droppableId]: { ...start, itemIds: startItemIds },
-        [destination.droppableId]: { ...finish, itemIds: finishItemIds },
+        [source.droppableId]: { ...start, itemId: startItemId },
+        [destination.droppableId]: { ...finish, itemId: finishItemId },
       };
 
       setData({ ...data, columns: updatedColumns });
-      return;
+
+      await updateDatabase(updatedColumns);
+    } else {
+      const column = data.columns[source.droppableId];
+      const updatedItemIds = Array.from(column.itemId);
+      const [movedItemId] = updatedItemIds.splice(source.index, 1);
+      updatedItemIds.splice(destination.index, 0, movedItemId);
+
+      const updatedColumns = {
+        ...data.columns,
+        [column.id]: { ...column, itemId: updatedItemIds },
+      };
+
+      setData({ ...data, columns: updatedColumns });
+
+      await updateDatabase(updatedColumns);
     }
-
-    const column = data.columns[source.droppableId];
-    const updatedItemIds = Array.from(column.itemIds);
-    const [movedItemId] = updatedItemIds.splice(source.index, 1);
-    updatedItemIds.splice(destination.index, 0, movedItemId);
-
-    const updatedColumns = {
-      ...data.columns,
-      [column.id]: { ...column, itemIds: updatedItemIds },
-    };
-
-    setData({ ...data, columns: updatedColumns });
   };
 
   if (!data) {
@@ -86,10 +107,11 @@ const Board: React.FC = () => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="board-container">
+      <div className="board-container grid grid-cols-3 gap-4">
         {data.columnOrder.map((columnId) => {
           const column = data.columns[columnId];
-          const items = column.itemIds.map((itemId) => data.items[itemId]);
+          const items = column?.itemId?.map((itemIds: any) => data.items[itemIds]).filter(Boolean);
+          console.log(items);
 
           let color;
           if (column.title === "To Do") {
@@ -103,24 +125,24 @@ const Board: React.FC = () => {
           return (
             <Droppable key={column.id} droppableId={column.id} direction="vertical">
               {(provided) => (
-                <div ref={provided.innerRef} {...provided.droppableProps} className="column">
+                <div ref={provided.innerRef} {...provided.droppableProps} className="column p-4 rounded-lg">
                   <div className="column-header">
-                    <h3 className={`${color}`}>{column.title}</h3>
+                    <h3 className={`${color} font-bold mb-2`}>{column.title}</h3>
                   </div>
-                  <div className="column-content">
-                    {items.map((item, index) => (
-                      <Draggable key={item.id} draggableId={item.id} index={index}>
+                  <div className="column-content space-y-2">
+                    {items?.length === 0 && <div className="text-gray-500">No items</div>}
+
+                    {items?.map((item: Item, index: number) => (
+                      <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
                         {(provided) => (
-                          <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className="item text-[15px]">
+                          <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className="item bg-white p-2 shadow rounded">
                             {item.content}
                           </div>
                         )}
                       </Draggable>
                     ))}
                     {provided.placeholder}
-                    <div className="flex items-center w-full justify-center hover:bg-gray-100 mt-4 h-[2rem] hover:cursor-pointer group rounded-lg">
-                      {/* <FaPlus className="text-gray-500 text-[14px] opacity-40 group-hover:opacity-100" /> */}+
-                    </div>
+                    <div className="flex items-center justify-center hover:bg-gray-200 mt-4 h-[2rem] hover:cursor-pointer group rounded-lg">+</div>
                   </div>
                 </div>
               )}
