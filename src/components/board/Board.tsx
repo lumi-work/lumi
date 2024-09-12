@@ -32,10 +32,10 @@ const Board: React.FC = () => {
         if (initialData && initialData.columns && initialData.items && initialData.columnOrder) {
           setData(initialData);
         } else {
-          console.error("Geçersiz veri yapısı:", initialData);
+          console.error("Invalid data types:", initialData);
         }
       } catch (error) {
-        console.error("Veri alınırken hata oluştu:", error);
+        console.error("Fetch data error:", error);
       } finally {
         setLoading(false);
       }
@@ -109,7 +109,7 @@ const Board: React.FC = () => {
   }
 
   if (!data) {
-    return <div>Veri bulunamadı.</div>;
+    return <div>404</div>;
   }
 
   return (

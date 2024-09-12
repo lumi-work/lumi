@@ -4,13 +4,13 @@ import "@/styles/hero.css";
 function Hero() {
   return (
     <div className="flex flex-col items-center justify-center pt-20 mt-20">
-      <h1 className="text-[90px] font-bold text-center">
+      <h1 className="text-[86px] font-bold text-center">
         <span className="gradient-text">A more humane</span>
         <br />
         <span className="text-black">kanban board</span>
       </h1>
       <p className="text-xl font-medium text-center mt-4">
-        Lumi is a back to basic to-do list focused on fast and
+        Lumi is a back to basic kanban board focused on fast and
         <br /> delightful user experience.
       </p>
       <div className="flex mt-5 gap-5">
