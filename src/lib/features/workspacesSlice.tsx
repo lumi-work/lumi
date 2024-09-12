@@ -37,7 +37,6 @@ export const fetchWorkspaces = createAsyncThunk("workspaces/userWorkspace", asyn
     }
 
     if (!workspaces || workspaces.length === 0) {
-      console.log("No workspaces found");
       return [];
     }
 
