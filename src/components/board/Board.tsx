@@ -22,6 +22,7 @@ interface Data {
 
 const Board: React.FC = () => {
   const [data, setData] = useState<Data | null>(null);
+  const [loading, setLoading] = useState(true);
   const supabase = createClient();
 
   useEffect(() => {
@@ -35,6 +36,8 @@ const Board: React.FC = () => {
         }
       } catch (error) {
         console.error("Veri alınırken hata oluştu:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -47,15 +50,15 @@ const Board: React.FC = () => {
         const column = updatedColumns[columnId];
         const { error: columnError } = await supabase
           .from("column")
-          .update({ itemId: column.itemId.join(",") })
+          .update({
+            itemId: column.itemId.join(","),
+          })
           .eq("id", column.id);
 
         if (columnError) throw columnError;
       }
-
-      console.log("Veritabanı başarıyla güncellendi.");
     } catch (error) {
-      console.error("Veritabanı güncellenirken hata oluştu:", error);
+      //
     }
   };
 
@@ -101,10 +104,12 @@ const Board: React.FC = () => {
     }
   };
 
-  // loading animation (add spinner)
+  if (loading) {
+    return <div className="spinner">Loading...</div>;
+  }
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <div>Veri bulunamadı.</div>;
   }
 
   return (
@@ -112,24 +117,14 @@ const Board: React.FC = () => {
       <div className="board-container grid grid-cols-3 gap-4">
         {data.columnOrder.map((columnId) => {
           const column = data.columns[columnId];
-          const items = column?.itemId?.map((itemIds: any) => data.items[itemIds]).filter(Boolean);
-          console.log(items);
-
-          let color;
-          if (column.title === "To Do") {
-            color = "text-red-500";
-          } else if (column.title === "In Progress") {
-            color = "text-yellow-500";
-          } else {
-            color = "text-green-500";
-          }
+          const items = column?.itemId?.map((itemId: any) => data.items[itemId]).filter(Boolean);
 
           return (
             <Droppable key={column.id} droppableId={column.id} direction="vertical">
               {(provided) => (
                 <div ref={provided.innerRef} {...provided.droppableProps} className="column p-4 rounded-lg">
                   <div className="column-header">
-                    <h3 className={`${color} font-bold mb-2`}>{column.title}</h3>
+                    <h3 className="font-bold mb-2">{column.title}</h3>
                   </div>
                   <div className="column-content space-y-2">
                     {items?.length === 0 && <div className="text-gray-500">No items</div>}
@@ -144,7 +139,6 @@ const Board: React.FC = () => {
                       </Draggable>
                     ))}
                     {provided.placeholder}
-                    <div className="flex items-center justify-center hover:bg-gray-200 mt-4 h-[2rem] hover:cursor-pointer group rounded-lg">+</div>
                   </div>
                 </div>
               )}

@@ -1,13 +1,12 @@
 import { createClient } from "@/utils/client";
 
 export const fetchInitialData = async () => {
-
   const supabase = createClient();
 
   const { data: columnsData, error: columnError } = await supabase
     .from('column')
     .select('*');
-  
+
   if (columnError) {
     console.error('Column verisi çekilemedi:', columnError);
     return;
@@ -16,7 +15,7 @@ export const fetchInitialData = async () => {
   const { data: itemsData, error: itemsError } = await supabase
     .from('items')
     .select('*');
-  
+
   if (itemsError) {
     console.error('Items verisi çekilemedi:', itemsError);
     return;
@@ -31,7 +30,7 @@ export const fetchInitialData = async () => {
     acc[column.id] = {
       id: column.id,
       title: column.title,
-      itemId: [column.itemId]
+      itemId: column.itemId ? column.itemId.split(',') : []
     };
     return acc;
   }, {});
