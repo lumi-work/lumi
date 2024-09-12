@@ -71,6 +71,7 @@ function CreateWorkspace() {
 
     const date = new Date();
     const request = {
+      id: Math.floor(Math.random() * 10000),
       userId: state.userId,
       workspaceId: Date.now().toString() + Math.floor(Math.random() * 1000).toString(),
       name: workspaceName,
@@ -89,6 +90,8 @@ function CreateWorkspace() {
 
     const { error: columnError } = await supabase.from("column").insert(columnRequest);
     const { error } = await supabase.from("workspaces").insert(request);
+
+    console.log(error);
 
     if (error || columnError) {
       setError("An error occurred while creating the workspace.");
