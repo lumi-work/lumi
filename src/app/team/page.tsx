@@ -3,6 +3,8 @@ import TeamCard from "@/components/landing/TeamCard";
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
 
+import { MdOutlineArrowOutward } from "react-icons/md";
+
 export default function Home() {
   return (
     <main className="h-auto">
@@ -19,12 +21,22 @@ export default function Home() {
                 Hello, welcome to our team. We are best app and web developer. <br />U can join our team. We are friendly. Join our community
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-20">
-                <TeamCard username="@chefHarun" color="#FF0000" rolename="Web Developer" image="/profile1.png" />
-                <TeamCard username="@berke" color="#1B00A9" rolename="Mobile Developer" image="/profile2.png" />
-                <TeamCard username="@eylül" color="#FFCD1B" rolename="UI/UX Designer" image="/profile3.png" />
-                <TeamCard username="@yağmur" color="#8276FF" rolename="Bug Tester" image="/profile4.png" />
-                <TeamCard username="@alpDevs" color="#51CBDC" rolename="Data Analyst" image="/profile5.png" />
-                <TeamCard username="@doğa" color="#FF8ABB" rolename="Devops Engineer" image="/profile6.png" />
+                <TeamCard username="@spadeydev" color="#FF0000" rolename="Software Developer" image="/profile1.png" />
+                <TeamCard username="@chefberke" color="#1B00A9" rolename="Software Developer" image="/profile2.png" />
+                <TeamCard username="@hiring" color="#FFCD1B" rolename="UI/UX Designer" image="/profile3.png" />
+                <TeamCard username="@hiring" color="#8276FF" rolename="Bug Tester" image="/profile4.png" />
+                <TeamCard username="@hiring" color="#51CBDC" rolename="Data Analyst" image="/profile5.png" />
+                <TeamCard username="@hiring" color="#FF8ABB" rolename="Devops Engineer" image="/profile6.png" />
+              </div>
+            </div>
+            <div className="pt-24">
+              <h2 className="text-[32px] font-semibold">Excited to join our team?</h2>
+              <p className="text-gray-500 pt-1">We can't wait to hear from you! If you're interested in working with us, don't hesitate—reach out now!"</p>
+              <div className="mt-6">
+                <button className="bg-black text-white rounded-lg px-4 py-1.5 flex items-center gap-2">
+                  <p className="text-lg">Contact Now</p>
+                  <MdOutlineArrowOutward className="text-2xl" />
+                </button>
               </div>
             </div>
             <Footer />
