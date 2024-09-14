@@ -3,7 +3,7 @@ import { FaTwitter } from "react-icons/fa";
 
 function Footer() {
   return (
-    <div className="bg-white py-4 flex justify-between items-center px-10 border-t border-gray-200 mb-10 mt-48">
+    <div className="bg-white py-4 flex justify-between items-center px-10 border-t border-gray-200 mb-10 mt-24">
       <div className="text-gray-600">
         <p>© 2024 Lumi.</p>
         <div className="flex space-x-2 text-sm">
