@@ -91,8 +91,6 @@ function CreateWorkspace() {
     const { error: columnError } = await supabase.from("column").insert(columnRequest);
     const { error } = await supabase.from("workspaces").insert(request);
 
-    console.log(error);
-
     if (error || columnError) {
       setError("An error occurred while creating the workspace.");
       setLoading(false);
