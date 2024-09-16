@@ -9,14 +9,11 @@ function Grid() {
     <div className="grid grid-rows-[auto_1fr] grid-cols-1 gap-4">
       <div className="w-full bg-[#F3F2F5] h-[400px] mt-64 rounded-3xl shadow-md flex border-gray-200 border-2">
         <div className="flex flex-col">
-          <h1 className="text-black  text-3xl font-semibold ml-20 mt-10">
-            Fast & delightful <br />
-            user experience
-          </h1>
+          <h1 className="text-black  text-3xl font-semibold ml-20 mt-10">Track Your Workflow</h1>
           <p className="ml-20 text-gray-500 mt-5 text-xl">
-            Lumi helps you to manage your tasks and achieve your
-            <br /> goals in intuitive and delightful way. We wanted
-            <br /> to build an app you will enjoy using every day.
+            Lumi helps you organize your tasks efficiently <br />
+            and visualize your workflow for optimal <br />
+            productivity.
           </p>
         </div>
         <Image src={grid1} width={480} height={250} alt="grid1" className="ml-10 rounded-lg" />
@@ -24,11 +21,11 @@ function Grid() {
       <div className="grid grid-cols-2 gap-4 ">
         <div className="bg-[#F3F2F5] shadow-md rounded-3xl h-[400px] border-gray-200 border-2">
           <div className="flex flex-col">
-            <h1 className="text-black text-3xl font-semibold ml-20 mt-10">Light, dark & black UI theme</h1>
+            <h1 className="text-black text-3xl font-semibold ml-20 mt-10">Customizable Workspaces</h1>
             <p className="ml-20 text-gray-500 mt-5 text-xl">
-              Lumi offers lot of customizations, <br />
-              one of them allowing you to choose
-              <br /> from light, dark and black UI theme.
+              Lumi allows you to customize your workspace, <br />
+              so you can work the way that suits you best <br />
+              with flexible board layouts and themes.
             </p>
           </div>
           <div className="flex justify-center items-end">
@@ -37,10 +34,11 @@ function Grid() {
         </div>
         <div className="bg-[#F3F2F5] shadow-md h-[400px] rounded-3xl border-gray-200 border-2">
           <div className="flex flex-col">
-            <h1 className="text-black  text-3xl font-semibold ml-20 mt-10">Details matter</h1>
+            <h1 className="text-black  text-3xl font-semibold ml-20 mt-10">Focus on What Matters</h1>
             <p className="ml-20 text-gray-500 mt-5 text-xl">
-              We want to bring satisfation to <br />
-              every interaction.
+              Lumi helps you prioritize tasks and <br />
+              maintain focus with a clean and <br />
+              intuitive design.
             </p>
             <div className="flex justify-start ml-20 items-center mt-10">
               <Image src={grid3} width={350} height={100} alt="grid3" className="rounded-lg mt-5" />
